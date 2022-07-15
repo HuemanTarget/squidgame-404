@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Simple red light green light game from squid game.">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="red, green, light, game, squid, game, simple, game, html5, canvas, javascript, web, development, threejs, three, js">
+    <meta property="og:image" content="img/preview.png" />
+
+    <link rel="stylesheet" href="style.css">
+    <title>LFL 404 Page</title>
+</head>
+<body>
+    <h1 class="text">YOUNG-HEE 404 <span><img src="LFL_logo.png" alt="LFL Logo" style="width: 80px;"></span></h1>
+
+    <canvas 
+            id="gamecanvas" 
+            width="1280" 
+            height="720" 
+            style="border: 2px solid #000000;"
+            >
+                Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+    <div class="modal">
+        <div class="modal-content">
+            <h1 class="title">Red Light, Green Light</h1>
+            <p class="info">
+                You have hit the dreaded Young-Hee 404. Use the <b>Up Arrow</b> to try and get home but don't let Young-Hee see. Too afraid, hit the Home button below.
+            </p>
+            <button class="start-btn">loading...</button>
+            <button id="homeBtn">Home</button>
+        </div>
+    </div>
+
+    <script src="three.min.js"></script>
+    <script src="GLTFLoader.js"></script>
+    <script src="gsap.min.js"></script>
+    <script src="main.js"></script>
+    <!-- <script type="text/javascript">
+        document.getElementById("homeBtn").onclick = function () {
+            location.href = "https://www.leftfieldlabs.com/";
+        };
+    </script> -->
+</body>
+</html>
