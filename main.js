@@ -104,13 +104,22 @@ class Player {
             this.playerInfo.isDead = true
             this.stop()
             DEAD_PLAYERS++
-            loseMusic.play()
+            // loseMusic.play()
             if(DEAD_PLAYERS == players.length){
-                text.innerText = "Everyone lost!!!"
+                text.innerText = "You Lost!!!"
                 gameStat = "ended"
             }
             if(DEAD_PLAYERS + SAFE_PLAYERS == players.length){
                 gameStat = "ended"
+            }
+            if(gameStat = "ended") {
+                loader.load( './model/scene.gltf', function ( gltf ){
+                    scene.add( gltf.scene )
+                    doll = gltf.scene
+                    gltf.scene.position.set(0,-1, 0)
+                    gltf.scene.scale.set(0.4, 0.4, 0.4)
+                    startBtn.innerText = "start"
+                })
             }
         }
         if(this.playerInfo.positionX < end_position + .7){
@@ -118,7 +127,7 @@ class Player {
             this.playerInfo.isDead = true
             this.stop()
             SAFE_PLAYERS++
-            winMusic.play()
+            // winMusic.play()
             if(SAFE_PLAYERS == players.length){
                 text.innerText = "Everyone is safe!!!"
                 gameStat = "ended"
@@ -141,7 +150,7 @@ async function delay(ms){
 }
 
 const player1 = new Player("Player 1", .25, .3, 0xD1FFC6)
-const player2 = new Player("Player 2", .25, -.3, 0xFFCFD2)
+// const player2 = new Player("Player 2", .25, -.3, 0xFFCFD2)
 
 const players = [
     {
@@ -149,14 +158,14 @@ const players = [
         key: "ArrowUp",
         name: "Player 1"
     },
-    {
-        player: player2,
-        key: "w",
-        name: "Player 2"
-    }
+    // {
+    //     player: player2,
+    //     key: "w",
+    //     name: "Player 2"
+    // }
 ]
 
-const TIME_LIMIT = 15
+const TIME_LIMIT = 20
 async function init(){
     await delay(500)
     text.innerText = "Starting in 3"
@@ -167,7 +176,7 @@ async function init(){
     lookBackward()
     await delay(500)
     text.innerText = "Gooo!!!"
-    bgMusic.play()
+    // bgMusic.play()
     start()
 }
 
@@ -181,7 +190,7 @@ function start(){
     setTimeout(() => {
         if(gameStat != "ended"){
             text.innerText = "Time Out!!!"
-            loseMusic.play()
+            // loseMusic.play()
             gameStat = "ended"
         }
     }, TIME_LIMIT * 1000)
